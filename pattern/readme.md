@@ -1,7 +1,8 @@
 # IoT Edge Pattern
 
 Cloud Analytics are deployed down to IoT Devices to run them locally so that your business still operates reliabily even when connectivity is not consistent. In edge you are getting similar insights as the cloud.
-  
+
+<b>Click the below image to play video</b>   
 [![](images/centralpattern.png)](media/iot-central-edge-deck-mp4.mp4)
 
 Steps involved in building this pattern include 
