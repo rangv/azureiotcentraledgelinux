@@ -37,13 +37,21 @@ To create a device template from an IoT Edge manifest:
 
 1. In your IoT Central application, navigate to **Device templates** and select **+ New**.
 
+    ![New Device template](images/newdevicetemplate.png)
+
 1. On the **Select template type** page, select the **Azure IoT Edge** tile. Then select **Next: Customize**.
 
+    ![New Device template](images/edgetile.png)
+
 1. On the **Upload an Azure IoT Edge deployment manifest** page, select **Browse** to upload the **EnvironmentalSensorManifest.json** you downloaded previously. Then select **Next: Review**.
+
+    ![Device template created from IoT Edge manifest](images/dttemplate.png)
 
 1. On the **Review** page, select **Create**.
 
 1. When the template has been created, change its name to *Environmental Sensor Edge Device*.
+
+    ![Device template created from IoT Edge manifest](images/dttitle.png)
 
 1. Select the **Manage** interface in the **SimulatedTemperatureSensor** module to view the two properties defined in the manifest:
 
@@ -75,6 +83,9 @@ To add the telemetry definitions to the device template:
 
 1. Select **Object** as the schema type, and then select **Define**. On the object definition page, add *temperature* and *pressure* as attributes of type **Double** and then select **Apply**.
 
+    ![Machine Object](images/machineobject.png)
+
+
 1. Select **+ Add capability**. Enter *ambient* as the **Display name** and make sure that the **Capability type** is **Telemetry**.
 
 1. Select **Object** as the schema type, and then select **Define**. On the object definition page, add *temperature* and *humidity* as attributes of type **Double** and then select **Apply**.
@@ -88,6 +99,12 @@ To add the telemetry definitions to the device template:
 The **Manage** interface now includes the **machine**, **ambient**, and **timeCreated** telemetry types:
 
 ![Interface with machine and ambient telemetry types](images/manage-interface.png)
+
+### Add Cloud Properties
+
+Add Cloud properties, select **+Add Cloud Property**. Enter *Customer Name* as **Display Name** and **schema** as string. Click **Save**.
+
+![Cloud Properties](images/cloudproperties.png)
 
 ### Add views to template
 
@@ -105,6 +122,21 @@ The device template doesn't yet have a view that lets an operator see the teleme
 
 ![Device template with telemetry view](images/template-telemetry-view.png)
 
+### Add form to template
+
+The device template doesn't yet have a form that lets an operator enter cloud property information for the IoT Edge device. To add a form to the device template:
+
+1. Select **Views** in the **Environmental Sensor Edge Device** template.
+
+1. On the **Select to add a new view** page, select the **Editing Device and Cloud Data** tile.
+
+1. Select the **Customer Name** and **Service Date** cloud properties. Then select **Add tile**.
+
+1. Select **Save** to save the **View IoT Edge device telemetry** view.
+
+![Device template with telemetry view](images/form.png)
+
+
 ### Publish the template
 
 Before you can add a device that uses the **Environmental Sensor Edge Device** template, you must publish the template.
@@ -120,6 +152,8 @@ Now you've published the **Environmental Sensor Edge Device** template, you can 
 1. In your IoT Central application, navigate to the **Devices** page and select **Environmental Sensor Edge Device** in the list of available templates.
 
 1. Select **+** to add a new device from the template. On the **Create new device** page, select **Create**.
+
+    ![Publish the device template](images/new-device2.png)
 
 You now have a new device with the status **Registered**:
 
@@ -190,6 +224,9 @@ To provision VM as an IoT Edge device:
 
 1. Save the changes (**Ctrl-O**) and exit (**Ctrl-X**) the `nano` editor.
 
+    ![Edit config.yaml](images/configyaml.png)
+
+
 1. Run the following command to restart the IoT Edge daemon:
 
     ```bash
@@ -206,16 +243,24 @@ To provision VM as an IoT Edge device:
 
     ```bash
     NAME                        STATUS           DESCRIPTION      CONFIG
-    SimulatedTemperatureSensor  running          Up 20 seconds    mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.0.8
-    edgeAgent                   running          Up 27 seconds    mcr.microsoft.com/azureiotedge-agent:1.0.8
-    edgeHub                     running          Up 22 seconds    mcr.microsoft.com/azureiotedge-hub:1.0.8
+    SimulatedTemperatureSensor  running          Up 20 seconds    mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.0.9
+    edgeAgent                   running          Up 27 seconds    mcr.microsoft.com/azureiotedge-agent:1.0.9
+    edgeHub                     running          Up 22 seconds    mcr.microsoft.com/azureiotedge-hub:1.0.9
     ```
 
-## View the telemetry
+## Fill the Form (Cloud Properties)
 
 The simulated IoT Edge device is now running in the VM. In your IoT Central application, the device status is now **Provisioned** on the **Devices** page:
 
 ![Provisioned device](images/provisioned-device.png)
+
+![Provisioned device](images/provisioned-device2.png)
+
+Enter Cloud Properties for your Device and Click **Save**: 
+
+![Cloud Properties](images/form2.png)
+
+## View the telemetry
 
 You can see the telemetry on the **View IoT Edge device telemetry** page:
 
