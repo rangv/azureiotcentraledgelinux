@@ -111,7 +111,7 @@ Before you can add a device that uses the **Environmental Sensor Edge Device** t
 
 Navigate to the **Environmental Sensor Edge Device** template and select **Publish**. Then select **Publish** to publish the template:
 
-![Publish the device template](./media/tutorial-add-edge-as-leaf-device/publish-template.png)
+![Publish the device template](images/publish-template.png)
 
 ## Add IoT Edge device
 
