@@ -45,20 +45,6 @@ Connect this VM to your IoT Hub by setting the connection string with the run co
 
     ![Azure IoT Edge VM](images/08_serial_console.png)
 
-    You will be prompted with **Bash** or **PowerShell**. Select **Bash** for this workshop
-
-    ![Shell](images/18_shell_bash.png)
-
-    Select your subscription and create storage account
-
-    ![Shell](images/19_storage_mount.png)
-
-    You will get a prompt
-
-    ![Shell](images/20_shell_created.png)
-
-
-
 
     ```Linux
     ssh iotedgeadmin@<Your VM IP>
