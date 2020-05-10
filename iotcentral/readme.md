@@ -18,3 +18,6 @@ Create a new application. Make sure to use **Preview application**. IoT Central 
 This tutorial shows you, as a builder, how to use an Azure IoT edge device template to define a new type of device in your Microsoft Azure IoT Central application. A device template defines edge modules, the telemetry, state, properties, and settings of each module and relationship with downstream devices.
 
 Click [here](https://docs.microsoft.com/en-us/azure/iot-central/preview/tutorial-define-edge-device-type) to go to docs page which will walk you thru how to build and manage an IoT Edge device template] 
+
+> [!div class="nextstepaction"]
+> [Add Edge device](https://docs.microsoft.com/en-us/azure/iot-central/preview/tutorial-define-edge-device-type)
