@@ -29,7 +29,7 @@ This hands-on lab demonstrates what is involved in standing up an Azure IoT Edge
 
 [![screenshot](images/module4card.png)](edgemodule) 
 
-[![screenshot](images/module5card.png)](streamanalytics)
+[comment]: [![screenshot](images/module5card.png)](streamanalytics)
 
 [![screenshot](images/module6card.png)](functionmodule)
 
