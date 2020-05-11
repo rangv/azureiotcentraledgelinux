@@ -269,3 +269,32 @@ You can see the telemetry on the **View IoT Edge device telemetry** page:
 The **Modules** page shows the status of the IoT Edge modules:
 
 ![Device telemetry](images/edge-module-status.png)
+
+
+## Set Module Twin Properties
+
+You can set twin properties on the **Simulated Temperature Modlule** to stop sending data, module will react to the cloud update:
+
+Uncheck **SendData** property and Click **Save**
+![Property Update](images/senddatasave.png)
+
+Type the following command in the Linux VM to view logs
+    ```bash
+    iotedge logs -f SimulatedTemperatureSensor
+    ```
+
+You will see that the module stops sending data
+![Property Update](images/senddataupdate.png)
+
+Check the **SendData** check box and Click **Save**. Module will start sending data again 
+![Property Update](images/senddatacheckandsave.png)
+
+
+Type the following command in the Linux VM to view logs
+    ```bash
+    iotedge logs -f SimulatedTemperatureSensor
+    ```
+
+You will see that the module stops sending data
+![Property Update](images/senddataupdateagain.png)
+

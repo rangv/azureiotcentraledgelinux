@@ -1,0 +1,87 @@
+{
+  "modulesContent": {
+    "$edgeAgent": {
+      "properties.desired": {
+        "schemaVersion": "1.0",
+        "runtime": {
+          "type": "docker",
+          "settings": {
+            "minDockerVersion": "v1.25",
+            "loggingOptions": "",
+            "registryCredentials": {}
+          }
+        },
+        "systemModules": {
+          "edgeAgent": {
+            "type": "docker",
+            "settings": {
+              "image": "mcr.microsoft.com/azureiotedge-agent:1.0.9",
+              "createOptions": "{}"
+            }
+          },
+          "edgeHub": {
+            "type": "docker",
+            "status": "running",
+            "restartPolicy": "always",
+            "settings": {
+              "image": "mcr.microsoft.com/azureiotedge-hub:1.0.9",
+              "createOptions": "{}"
+            }
+          }
+        },
+        "modules": {
+          "SimulatedTemperatureSensor": {
+            "version": "1.0",
+            "type": "docker",
+            "status": "running",
+            "restartPolicy": "always",
+            "settings": {
+              "image": "mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.0",
+              "createOptions": "{}"
+            }
+          },
+          "StreamAnalytics": {
+            "settings": {
+                "image": "mcr.microsoft.com/azure-stream-analytics/azureiotedge:1.0.5",
+                "createOptions": ""
+            },
+            "type": "docker",
+            "version": "1.0",
+            "env": {
+                "PlanId": {
+                    "value": "stream-analytics-on-iot-edge"
+                }
+            },
+            "status": "running",
+            "restartPolicy": "always"
+        }
+        }
+      }
+    },
+    "$edgeHub": {
+      "properties.desired": {
+        "schemaVersion": "1.0",
+        "routes": {
+            "route": "FROM /* INTO $upstream"
+        },
+        "storeAndForwardConfiguration": {
+          "timeToLiveSecs": 7200
+        }
+      }
+    },
+    "SimulatedTemperatureSensor": {
+      "properties.desired": {
+           "SendData": true,
+           "SendInterval": 10
+      }
+    },
+    "StreamAnalytics": {
+        "properties.desired": {
+            "ASAJobInfo": "https://iotdeepdivedemos.blob.core.windows.net/iotdeepdivecontainer/ASAEdgeJobs/075d3e67-0c52-45d3-97d8-9dac4567aaf2/478b50b9-c207-4aaf-91bd-e88cebe38fb1/ASAEdgeJobDefinition.zip?sv=2018-03-28&sr=b&sig=vDC928yCcZ88GYVdCsV1uxU9c3rBLi5JrD8O8gqSjTM%3D&st=2019-11-20T04%3A42%3A33Z&se=2022-11-20T04%3A52%3A33Z&sp=r",
+            "ASAJobResourceId": "/subscriptions/b7846750-bcd8-47c0-badb-ee8907450435/resourceGroups/centraledgedemos/providers/Microsoft.StreamAnalytics/streamingjobs/IoTDeepDiveStreamAnalytics",
+            "ASAJobEtag": "0cb5350c-e455-4a3a-b688-e426892e70e3",
+            "PublishTimestamp": "11/20/2019 4:52:33 AM"
+        }
+    }
+  }
+}
